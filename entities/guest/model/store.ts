@@ -1,7 +1,7 @@
 import { createStore } from 'effector-next'
-import { Guest, GuestResponse } from '@/entities/guest/interfaces'
-import { createGust } from './effect'
+import { Guest } from '../interfaces'
+import { changeGuestSessionId } from './events'
 
-export const $guest = createStore<Guest>({ sessionId: null }).on(createGust.doneData, (_, result: GuestResponse) => ({
-	sessionId: result.guest_session_id,
-}))
+export const $guest = createStore<Guest>({ sessionId: null })
+
+$guest.on(changeGuestSessionId, (guest, result) => ({ ...guest, sessionId: result }))

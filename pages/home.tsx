@@ -10,7 +10,7 @@ const enhance = withStart(pageLoaded)
 
 function Home() {
 	const guest = useStore($guest)
-	console.log('guest', guest)
+	console.log(guest)
 	return (
 		<AuthorizeGuest>
 			<div>12312</div>

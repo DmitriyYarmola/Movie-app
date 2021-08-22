@@ -21,12 +21,52 @@
             "position": "before"
           },
           {
-            "pattern": "@Components",
+            "pattern": "@app",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "@Components/**",
+            "pattern": "@app/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@processes",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@processes/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@features",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@features/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@entities",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@entities/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@shared",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@shared/**",
             "group": "internal",
             "position": "before"
           }
