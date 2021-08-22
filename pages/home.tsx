@@ -3,6 +3,7 @@ import React from 'react'
 import { withStart } from 'effector-next'
 import { useStore } from 'effector-react'
 import { $guest } from '@/entities/guest'
+import { Button } from '@/shared/ui'
 import { pageLoaded } from 'entities/guest'
 import { AuthorizeGuest } from '../processes'
 
@@ -13,7 +14,7 @@ function Home() {
 	console.log(guest)
 	return (
 		<AuthorizeGuest>
-			<div>12312</div>
+			<Button>123</Button>
 		</AuthorizeGuest>
 	)
 }

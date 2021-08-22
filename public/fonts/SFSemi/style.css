@@ -1,0 +1,12 @@
+@font-face {
+    font-family:'SF Pro';
+    src: url('SF Pro Display Semibold Italic.eot');
+	src: url('SF Pro Display Semibold Italic.eot?#iefix') format('embedded-opentype'),
+		url('SF Pro Display Semibold Italic.woff2') format('woff2'),
+		url('SF Pro Display Semibold Italic.woff') format('woff'),
+		url('SF Pro Display Semibold Italic.svg#SF Pro Display Semibold Italic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
