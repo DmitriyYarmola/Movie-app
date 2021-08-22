@@ -1,0 +1,4 @@
+{
+  "presets": ["next/babel"],
+  "plugin": ["effector/babel-plugin", { "importName": ["effector-next"] }]
+}
