@@ -12,9 +12,9 @@ const request = createEffect({
 	},
 })
 
-request.done.watch(({ result }) => {
-	customLocalStorage.set('guest_session_id', result.guest_session_id)
-	changeGuestSessionId(result.guest_session_id)
+request.done.watch(({ result: { guest_session_id } }) => {
+	customLocalStorage.set('guest_session_id', guest_session_id)
+	changeGuestSessionId(guest_session_id)
 })
 
 trackGuestSessionId.watch(async () => {

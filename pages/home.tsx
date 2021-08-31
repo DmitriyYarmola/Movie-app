@@ -11,7 +11,6 @@ const enhance = withStart(pageLoaded)
 
 function Home() {
 	const guest = useStore($guest)
-	console.log(guest)
 	return (
 		<AuthorizeGuest>
 			<Button>123</Button>
