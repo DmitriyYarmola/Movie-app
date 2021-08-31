@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vanilla-extract/babel-plugin": "^1.0.1",
+    "@vanilla-extract/css": "^1.3.0",
     "axios": "^0.21.1",
     "effector": "^21.8.12",
     "effector-next": "^1.3.1",
