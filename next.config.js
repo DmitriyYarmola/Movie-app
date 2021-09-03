@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const { withEffectoReactAliases } = require('effector-next/tools')
-const path = require('path')
+const withVanillaExtract = require('vanilla-extract-plugin-nextjs')
 
 const enhance = withEffectoReactAliases()
-module.exports = enhance({
-	reactStrictMode: true,
-	sassOptions: {
-		prependData: `@import "@/styles/variables.scss";`,
-	},
-})
+module.exports = enhance(
+	withVanillaExtract({
+		reactStrictMode: false,
+	})
+)

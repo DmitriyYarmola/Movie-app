@@ -11,9 +11,10 @@ const enhance = withStart(pageLoaded)
 
 function Home() {
 	const guest = useStore($guest)
+	console.log('guest', guest)
 	return (
 		<AuthorizeGuest>
-			<Button>123</Button>
+			<Button>Watch movie</Button>
 		</AuthorizeGuest>
 	)
 }

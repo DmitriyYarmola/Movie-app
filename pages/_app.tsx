@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
-import '@/styles/globals.scss'
-import 'public/fonts/fonts.scss'
 import { withHydrate } from 'effector-next'
+import '@/styles/global.css'
+import '@/styles/fonts.css'
 
 const enhance = withHydrate()
 function App({ Component, pageProps }: AppProps) {
