@@ -7,7 +7,4 @@ export const vars = createGlobalTheme(':root', {
 		darkPurple: '#4f2aad',
 		transparentBlack: 'rgba(0,0,0,.42)',
 	},
-	font: {
-		body: 'arial',
-	},
 })
