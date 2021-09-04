@@ -2,8 +2,8 @@ import React from 'react'
 
 import { withStart } from 'effector-next'
 import { useStore } from 'effector-react'
-import { $guest } from '@/entities/guest'
-import { Button } from '@/shared/ui'
+import { $guest } from '@entities/guest'
+import { Input } from '@shared/ui'
 import { pageLoaded } from 'entities/guest'
 import { AuthorizeGuest } from '../processes'
 
@@ -14,7 +14,7 @@ function Home() {
 	console.log('guest', guest)
 	return (
 		<AuthorizeGuest>
-			<Button>Watch movie</Button>
+			<Input name={'test'} placeholder={'Standard'} />
 		</AuthorizeGuest>
 	)
 }

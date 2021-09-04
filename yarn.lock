@@ -493,6 +493,11 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/private/-/private-1.0.1.tgz#c9479cebea7e7fbb07a1fe5b5c988a8753ef04ed"
   integrity sha512-ABrFJGSmF7a1M+eDTsIeAErPhIeRyBY3ypyLQPc4bUVEK1mvF7F2gx4fTP81pm12bkS0GhjSJtM854lcPWhB+w==
 
+"@vanilla-extract/sprinkles@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.1.3.tgz#76420c1006eca6d2cd17a6aaa75e1277984334f0"
+  integrity sha512-UZ+icc/aCh5NTSnhFt+sA7NeDSsVUbFujQmGgOMRpds/7IJuS14iCBK3HNBUHQGvuHu8pqy43krQuJlue67VvQ==
+
 "@vanilla-extract/webpack-plugin@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-1.1.0.tgz#9761dbfeb24271c6ca541fca311551413a79462e"

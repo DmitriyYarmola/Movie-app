@@ -1,6 +1,6 @@
 import { createEffect, createEvent } from 'effector-next'
-import { generateGuestToken } from '@/shared/api'
-import { customLocalStorage } from '@/shared/lib'
+import { generateGuestToken } from '@shared/api'
+import { customLocalStorage } from '@shared/lib'
 import { GuestResponse } from '../interfaces'
 import { changeGuestSessionId, trackGuestSessionId } from './events'
 
