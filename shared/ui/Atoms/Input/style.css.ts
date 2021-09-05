@@ -1,4 +1,4 @@
-import { GlobalStyleRule, style, StyleRule } from '@vanilla-extract/css'
+import { style, StyleRule } from '@vanilla-extract/css'
 import { vars } from '@shared/styles/theme.css'
 
 export const styles = style({
@@ -7,6 +7,10 @@ export const styles = style({
 	borderBottom: `1px solid ${vars.colors.transparentBlack}`,
 	padding: '6px 0 7px',
 	fontSize: '1rem',
+	transition: '.2s linear',
+	':hover': {
+		borderColor: vars.colors.black,
+	},
 })
 
 export const label = style({

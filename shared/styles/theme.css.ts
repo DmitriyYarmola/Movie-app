@@ -6,6 +6,7 @@ export const vars = createGlobalTheme(':root', {
 		white: '#ffffff',
 		darkPurple: '#4f2aad',
 		transparentBlack: 'rgba(0,0,0,.42)',
+		black: '#000000',
 	},
 	space: {
 		none: '0',
