@@ -12,11 +12,7 @@ const enhance = withStart(pageLoaded)
 function Home() {
 	const guest = useStore($guest)
 	console.log('guest', guest)
-	return (
-		<AuthorizeGuest>
-			<Input name={'test'} placeholder={'Standard'} />
-		</AuthorizeGuest>
-	)
+	return <AuthorizeGuest>Home page</AuthorizeGuest>
 }
 
 export default enhance(Home)
