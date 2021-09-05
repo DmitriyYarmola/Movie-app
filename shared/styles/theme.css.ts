@@ -3,6 +3,7 @@ import { createGlobalTheme } from '@vanilla-extract/css'
 export const vars = createGlobalTheme(':root', {
 	colors: {
 		purple: '#6644B8',
+		'purple-100': '#66448F',
 		white: '#ffffff',
 		darkPurple: '#4f2aad',
 		transparentBlack: 'rgba(0,0,0,.42)',
