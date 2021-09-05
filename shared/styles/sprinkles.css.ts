@@ -1,13 +1,6 @@
 import { createAtomicStyles, createAtomsFn } from '@vanilla-extract/sprinkles'
 import { vars } from './theme.css'
 
-const space = {
-	none: 0,
-	small: '4px',
-	medium: '8px',
-	large: '16px',
-}
-
 const responsiveStyles = createAtomicStyles({
 	conditions: {
 		mobile: {},
@@ -21,10 +14,10 @@ const responsiveStyles = createAtomicStyles({
 		flexDirection: ['row', 'column'],
 		justifyContent: ['stretch', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'],
 		alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
-		paddingTop: space,
-		paddingBottom: space,
-		paddingLeft: space,
-		paddingRight: space,
+		paddingTop: vars.space,
+		paddingBottom: vars.space,
+		paddingLeft: vars.space,
+		paddingRight: vars.space,
 		fontSize: ['.8rem', '1rem'],
 		top: ['-10px'],
 	},

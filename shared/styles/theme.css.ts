@@ -7,4 +7,10 @@ export const vars = createGlobalTheme(':root', {
 		darkPurple: '#4f2aad',
 		transparentBlack: 'rgba(0,0,0,.42)',
 	},
+	space: {
+		none: '0',
+		small: '4px',
+		medium: '8px',
+		large: '16px',
+	},
 })
