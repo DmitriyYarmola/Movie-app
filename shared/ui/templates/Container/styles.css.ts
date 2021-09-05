@@ -9,5 +9,5 @@ export const styles = composeStyles(
 			desktop: 'laptop',
 		},
 	}),
-	style({ margin: '0 auto' })
+	style({ margin: '0 auto', padding: '0 30px' })
 )
