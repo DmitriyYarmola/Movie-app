@@ -18,17 +18,12 @@ const responsiveStyles = createAtomicStyles({
 		paddingBottom: vars.space,
 		paddingLeft: vars.space,
 		paddingRight: vars.space,
-		marginTop: vars.space,
-		marginBottom: vars.space,
-		marginLeft: vars.space,
-		marginRight: vars.space,
 		width: vars.containerWeights,
 	},
 	shorthands: {
 		padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],
 		paddingX: ['paddingLeft', 'paddingRight'],
 		paddingY: ['paddingTop', 'paddingBottom'],
-		margin: ['marginTop', 'marginBottom', 'marginLeft', 'marginRight'],
 		placeItems: ['justifyContent', 'alignItems'],
 	},
 })
