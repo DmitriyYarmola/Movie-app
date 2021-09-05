@@ -1,15 +1,17 @@
 import Image from 'next/image'
-import { Container } from '@shared/ui'
+import { Container, Hamburger } from '@shared/ui'
+import { useToggle } from '@shared/lib'
 import { Logo } from '@public/images'
-import { wrapper } from './styles.css'
+import { wrapper, styles } from './styles.css'
 
 export const Header = () => {
+	const [isOpen, toggleOpen] = useToggle()
 	return (
-		<header>
+		<header className={styles}>
 			<Container>
 				<div className={wrapper}>
-					<Image src={Logo} alt='logo' width='155px' height='20px' />
-					<div>Right content</div>
+					<Image src={Logo} alt='logo' width='120px' height='20px' />
+					<Hamburger onClick={toggleOpen} />
 				</div>
 			</Container>
 		</header>
