@@ -10,8 +10,16 @@ export const vars = createGlobalTheme(':root', {
 	},
 	space: {
 		none: '0',
+		auto: 'auto',
 		small: '4px',
 		medium: '8px',
 		large: '16px',
+	},
+	containerWeights: {
+		mobile: '320px',
+		tablet: '640px',
+		tabletL: '930px',
+		laptop: '1240px',
+		desktop: '1700px',
 	},
 })
