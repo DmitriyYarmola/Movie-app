@@ -29,22 +29,15 @@ const responsiveStyles = createAtomicStyles({
 	},
 })
 
-const colors = {
-	purple: vars.colors.purple,
-	white: vars.colors.white,
-	darkPurple: vars.colors.darkPurple,
-	transparentBlack: vars.colors.transparentBlack,
-}
-
 const colorStyles = createAtomicStyles({
 	conditions: {
-		lightMode: {},
+		lightMode: { '@media': '(prefers-color-scheme: light)' },
 		darkMode: { '@media': '(prefers-color-scheme: dark)' },
 	},
 	defaultCondition: 'lightMode',
 	properties: {
-		color: colors,
-		background: colors,
+		color: vars.colors,
+		background: vars.colors,
 	},
 })
 
