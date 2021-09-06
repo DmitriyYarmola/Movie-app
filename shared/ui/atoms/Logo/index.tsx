@@ -11,7 +11,9 @@ interface Props {
 export const Logo = ({ to, height, width }: Props) => {
 	return (
 		<Link href={to} passHref>
-			<Image src={LogoImage} alt='logo' width={width} height={height} />
+			<span>
+				<Image src={LogoImage} alt='logo' width={width} height={height} />
+			</span>
 		</Link>
 	)
 }
