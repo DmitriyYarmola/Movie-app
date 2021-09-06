@@ -6,5 +6,8 @@ const enhance = withEffectoReactAliases()
 module.exports = enhance(
 	withVanillaExtract({
 		reactStrictMode: false,
+		images: {
+			domains: ['images.pexels.com'],
+		},
 	})
 )
