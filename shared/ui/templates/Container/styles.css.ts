@@ -5,6 +5,7 @@ export const styles = composeStyles(
 	atoms({
 		width: {
 			mobile: 'mobile',
+			tabletS: 'tabletS',
 			tablet: 'tablet',
 			desktop: 'laptop',
 		},

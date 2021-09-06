@@ -4,6 +4,7 @@ import { vars } from './theme.css'
 const responsiveStyles = createAtomicStyles({
 	conditions: {
 		mobile: {},
+		tabletS: { '@media': 'screen and (min-width: 568px)' },
 		tablet: { '@media': 'screen and (min-width: 768px)' },
 		desktop: { '@media': 'screen and (min-width: 1024px)' },
 	},
@@ -18,7 +19,8 @@ const responsiveStyles = createAtomicStyles({
 		paddingBottom: vars.space,
 		paddingLeft: vars.space,
 		paddingRight: vars.space,
-		width: vars.containerWeights,
+		width: { ...vars.containerWeights, ...vars.cardSizes.width },
+		height: { ...vars.cardSizes.height },
 	},
 	shorthands: {
 		padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],
