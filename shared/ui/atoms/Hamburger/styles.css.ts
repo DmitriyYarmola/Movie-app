@@ -14,6 +14,7 @@ export const styles = style({
 	width: '30px',
 	height: '4px',
 	background: vars.colors.white,
+	top: '10px',
 	':after': {
 		...pseudoStyles,
 		top: '8px',
@@ -23,4 +24,7 @@ export const styles = style({
 		bottom: '8px',
 	},
 })
-export const wrapper = style({})
+export const wrapper = style({
+	height: '24px',
+	cursor: 'pointer',
+})
