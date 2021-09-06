@@ -3,6 +3,7 @@ import React from 'react'
 import { withStart } from 'effector-next'
 import { useStore } from 'effector-react'
 import { $guest } from '@entities/guest'
+import { ListOfPopularMovies, MovieCard } from '@entities/movies'
 import { MainTemplate } from '@shared/ui'
 import { pageLoaded } from 'entities/guest'
 import { AuthorizeGuest } from '../processes'
@@ -15,7 +16,9 @@ function Home() {
 	console.log('guest', guest)
 	return (
 		<AuthorizeGuest>
-			<MainTemplate header={<Header />}>Page</MainTemplate>
+			<MainTemplate header={<Header />}>
+				<ListOfPopularMovies />
+			</MainTemplate>
 		</AuthorizeGuest>
 	)
 }

@@ -1,5 +1,5 @@
 import { createEffect, createEvent } from 'effector-next'
-import { generateGuestToken } from '@shared/api'
+import { api } from '@shared/api'
 import { customLocalStorage } from '@shared/lib'
 import { GuestResponse } from '../interfaces'
 import { changeGuestSessionId, trackGuestSessionId } from './events'
@@ -8,7 +8,7 @@ export const pageLoaded = createEvent<any>()
 
 const request = createEffect({
 	async handler() {
-		return await generateGuestToken<GuestResponse>()
+		return await api.auth.generateGuestToken<GuestResponse>()
 	},
 })
 
