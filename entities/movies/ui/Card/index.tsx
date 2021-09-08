@@ -1,20 +1,22 @@
 import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { styles, image, information, title } from './styles.css'
+import { styles, image, information, name } from './styles.css'
+import { ROOT_IMAGE_API_URL } from '@app/config'
 
 interface Props {
 	to: string
+	title: string
+	posterPath: string
+	averageVote: number
 }
-export const Card: FC<Props> = ({ to }) => {
+export const Card: FC<Props> = ({ to, averageVote, posterPath, title }) => {
 	return (
 		<Link href={to} passHref>
 			<div className={styles}>
 				<div className={image}>
 					<Image
-						src={
-							'https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-						}
+						src={`${ROOT_IMAGE_API_URL}${posterPath}`}
 						className={image}
 						alt={'alt'}
 						layout='fill'
@@ -23,8 +25,8 @@ export const Card: FC<Props> = ({ to }) => {
 					/>
 				</div>
 				<div className={information}>
-					<p className={title}>Avatar</p>
-					<div>Rating</div>
+					<p className={name}>{title}</p>
+					<div>{averageVote}</div>
 				</div>
 			</div>
 		</Link>

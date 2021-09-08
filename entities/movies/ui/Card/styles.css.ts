@@ -23,7 +23,7 @@ export const information = style({
 	marginLeft: '25px',
 })
 
-export const title = style({
+export const name = style({
 	color: vars.colors.white,
 	fontWeight: 500,
 	padding: '12px 0',

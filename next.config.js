@@ -7,7 +7,7 @@ module.exports = enhance(
 	withVanillaExtract({
 		reactStrictMode: false,
 		images: {
-			domains: ['images.pexels.com'],
+			domains: ['image.tmdb.org'],
 		},
 	})
 )

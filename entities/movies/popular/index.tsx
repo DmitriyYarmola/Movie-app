@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react'
-import { getPopularMovies } from '../model'
+import { useStore } from 'effector-react'
+import { MovieCard } from '@entities/movies'
+import { getPopularMovies, $popularMovies } from '../model'
 
-interface Props {
-	items?: any[]
-}
-export const ListOfPopularMovies = ({ items }: Props) => {
+export const ListOfPopularMovies = () => {
+	const movies = useStore($popularMovies)
+
 	useEffect(() => {
 		getPopularMovies('popular')
 	}, [])
 
-	return <div>popular</div>
+	console.log('movies', movies)
+	return (
+		<div>
+			{movies.map(({ id, title, poster_path, vote_average }) => {
+				return <MovieCard to={''} key={id} title={title} posterPath={poster_path} averageVote={vote_average} />
+			})}
+		</div>
+	)
 }
