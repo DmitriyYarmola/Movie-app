@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { styles, image, information, name } from './styles.css'
 import { ROOT_IMAGE_API_URL } from '@app/config'
+import { Rate } from '@shared/ui'
+import { styles, image, information, name } from './styles.css'
 
 interface Props {
 	to: string
@@ -26,7 +27,9 @@ export const Card: FC<Props> = ({ to, averageVote, posterPath, title }) => {
 				</div>
 				<div className={information}>
 					<p className={name}>{title}</p>
-					<div>{averageVote}</div>
+					<div>
+						<Rate />
+					</div>
 				</div>
 			</div>
 		</Link>
