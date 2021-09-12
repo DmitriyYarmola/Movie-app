@@ -3,13 +3,16 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 const enhance = withFork({ debug: false })
 
-class MyDocument extends Document {
+class MyDocument extends Document<any> {
 	render() {
 		return (
 			<Html>
 				<Head />
-				<link href='../public/index.html' />
-				<svg display='none'>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					viewBox='0 0 32 32'
+					style={{ position: 'absolute', right: '-10px', height: 0, width: 0 }}
+				>
 					<defs>
 						<linearGradient id='half' x1='0' x2='100%' y1='0' y2='0'>
 							<stop offset='50%' stopColor='#fed94b' />

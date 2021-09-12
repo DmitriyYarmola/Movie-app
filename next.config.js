@@ -9,11 +9,6 @@ module.exports = enhance(
 			domains: ['image.tmdb.org'],
 		},
 		webpack(config) {
-			// console.log('config', config)
-			// config.module.rules.push({
-			// 	test: /\.svg$/,
-			// 	loader: 'svg-sprite-loader',
-			// })
 			return config
 		},
 	})
