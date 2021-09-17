@@ -1,23 +1,27 @@
 import React from 'react'
-import { activeStyles, styles } from './styles.css'
-export const Rate = () => {
+import { generateArrayWithId } from '@shared/lib'
+import { checkIsLastArrayItem } from '@shared/lib'
+import { styles, rate } from './styles.css'
+
+interface Props {
+	count: number
+}
+export const Rate = ({ count }: Props) => {
+	const WIDTH = 20
+	const HEIGHT = 20
+	const int_count = Math.floor(count)
+	const decimal_count = String(count).split('.')[1]
+	const array = generateArrayWithId(int_count)
 	return (
-		<p className='c-rate'>
-			{/*<svg className={styles} width='32' height='32'>*/}
-			{/*	<use xlinkHref='#star' />*/}
-			{/*</svg>*/}
-			{/*<svg className={styles} width='32' height='32'>*/}
-			{/*	<use xlinkHref='#star' />*/}
-			{/*</svg>*/}
-			{/*<svg className={styles} width='32' height='32'>*/}
-			{/*	<use xlinkHref='#star' />*/}
-			{/*</svg>*/}
-			{/*<svg className={styles} width='32' height='32'>*/}
-			{/*	<use xlinkHref='#star' />*/}
-			{/*</svg>*/}
-			<svg className={`${styles} ${activeStyles}`} viewBox='0 0 32 32' width='32' height='32'>
-				<use xlinkHref='#star' fill='url(#half)' />
-			</svg>
+		<p className={rate}>
+			{array.map((id, index) => {
+				const isLastItem = checkIsLastArrayItem(index, array.length)
+				return (
+					<svg className={`${styles}`} viewBox={`0 0 ${WIDTH} ${HEIGHT}`} width={WIDTH} height={HEIGHT} key={id}>
+						<use xlinkHref='#star' fill={decimal_count && isLastItem ? 'url(#half)' : ''} />
+					</svg>
+				)
+			})}
 		</p>
 	)
 }

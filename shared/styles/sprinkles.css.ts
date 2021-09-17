@@ -1,5 +1,5 @@
 import { createAtomicStyles, createAtomsFn } from '@vanilla-extract/sprinkles'
-import { vars } from './theme.css'
+import { cardWidth, vars } from './theme.css'
 
 const responsiveStyles = createAtomicStyles({
 	conditions: {
@@ -21,6 +21,12 @@ const responsiveStyles = createAtomicStyles({
 		paddingRight: vars.space,
 		width: { ...vars.containerWeights, ...vars.cardSizes.width },
 		height: { ...vars.cardSizes.height },
+		gridTemplateColumns: {
+			auto: `repeat(auto-fill, ${cardWidth.auto})`,
+			small: `repeat(auto-fill, ${cardWidth.small})`,
+			medium: `repeat(auto-fill, ${cardWidth.medium})`,
+			large: `repeat(auto-fill, ${cardWidth.large})`,
+		},
 	},
 	shorthands: {
 		padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],

@@ -1,5 +1,6 @@
 import { withFork } from 'effector-next'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { vars } from '@shared/styles'
 
 const enhance = withFork({ debug: false })
 
@@ -8,6 +9,8 @@ class MyDocument extends Document<any> {
 		return (
 			<Html>
 				<Head />
+
+				{/*SVG Sprites*/}
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					viewBox='0 0 32 32'
@@ -15,8 +18,8 @@ class MyDocument extends Document<any> {
 				>
 					<defs>
 						<linearGradient id='half' x1='0' x2='100%' y1='0' y2='0'>
-							<stop offset='50%' stopColor='#fed94b' />
-							<stop offset='50%' stopColor='#f7f0c3' />
+							<stop offset='50%' stopColor={vars.colors.yellow} />
+							<stop offset='50%' stopColor={vars.colors.dark_yellow} />
 						</linearGradient>
 
 						<symbol xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' id='star'>
@@ -24,6 +27,7 @@ class MyDocument extends Document<any> {
 						</symbol>
 					</defs>
 				</svg>
+				{/*SVG Sprites End*/}
 				<body>
 					<Main />
 					<NextScript />

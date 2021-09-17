@@ -19,7 +19,7 @@ export const Card: FC<Props> = ({ to, averageVote, posterPath, title }) => {
 					<Image
 						src={`${ROOT_IMAGE_API_URL}${posterPath}`}
 						className={image}
-						alt={'alt'}
+						alt={title}
 						layout='fill'
 						sizes='100vw'
 						objectFit='cover'
@@ -27,9 +27,7 @@ export const Card: FC<Props> = ({ to, averageVote, posterPath, title }) => {
 				</div>
 				<div className={information}>
 					<p className={name}>{title}</p>
-					<div>
-						<Rate />
-					</div>
+					<Rate count={averageVote} />
 				</div>
 			</div>
 		</Link>

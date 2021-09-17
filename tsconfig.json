@@ -22,6 +22,7 @@
       "@app/*": ["app/*"],
       "@entities/*": ["entities/*"],
       "@public/*": ["public/*"],
+      "@root/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

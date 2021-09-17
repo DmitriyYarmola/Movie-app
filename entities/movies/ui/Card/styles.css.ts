@@ -2,13 +2,19 @@ import { composeStyles, style } from '@vanilla-extract/css'
 import { atoms } from '@shared/styles/sprinkles.css'
 import { vars } from '@shared/styles/theme.css'
 
-export const styles = style({})
+export const styles = atoms({
+	width: {
+		mobile: 'auto',
+		tablet: 'small',
+		desktop: 'small',
+	},
+})
 export const image = composeStyles(
 	atoms({
 		position: 'relative',
 		width: {
 			mobile: 'auto',
-			tablet: 'large',
+			tablet: 'small',
 			desktop: 'small',
 		},
 		height: {
@@ -19,9 +25,7 @@ export const image = composeStyles(
 	style({ left: '0', borderRadius: '30px' })
 )
 
-export const information = style({
-	marginLeft: '25px',
-})
+export const information = style({ textAlign: 'center', display: 'grid', justifyContent: 'center' })
 
 export const name = style({
 	color: vars.colors.white,
