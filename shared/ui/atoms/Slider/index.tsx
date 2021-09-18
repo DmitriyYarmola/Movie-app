@@ -21,7 +21,7 @@ export const Slider: React.FC<Props> = ({ children, options = initialOptions }) 
 	const changeChildrenStyles = () => {
 		return React.Children.map(children, (child: any) =>
 			React.cloneElement(child, {
-				styles: { width: elementWidth },
+				styles: { minWidth: elementWidth },
 			})
 		)
 	}
