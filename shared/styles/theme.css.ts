@@ -6,6 +6,13 @@ export const cardWidth = {
 	large: '355px',
 	auto: '100%',
 }
+
+export const containerWeights = {
+	mobile: '320px',
+	tabletS: '480px',
+	tablet: '640px',
+	laptop: '1240px',
+}
 export const vars = createGlobalTheme(':root', {
 	colors: {
 		purple: '#6644B8',
@@ -25,12 +32,7 @@ export const vars = createGlobalTheme(':root', {
 		medium: '8px',
 		large: '16px',
 	},
-	containerWeights: {
-		mobile: '320px',
-		tabletS: '480px',
-		tablet: '640px',
-		laptop: '1240px',
-	},
+	containerWeights,
 	cardSizes: {
 		width: {
 			small: '150px',

@@ -2,7 +2,7 @@ import { composeStyles, style } from '@vanilla-extract/css'
 import { atoms } from '@shared/styles/sprinkles.css'
 import { vars } from '@shared/styles/theme.css'
 
-export const styles = atoms({
+export const item = atoms({
 	width: {
 		mobile: 'auto',
 		tablet: 'small',
