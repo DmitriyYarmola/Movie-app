@@ -8,5 +8,6 @@ export const slider = style({
 export const track = style({
 	display: 'flex',
 	justifyContent: 'space-between',
-	gridColumnGap: '20px',
+	transition: '.5s  ease-in-out',
+	// gridColumnGap: '20px',
 })
