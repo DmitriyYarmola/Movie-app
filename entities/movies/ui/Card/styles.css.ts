@@ -22,7 +22,7 @@ export const image = composeStyles(
 			desktop: 'large',
 		},
 	}),
-	style({ left: '0', borderRadius: '30px' })
+	style({ left: '0', borderRadius: '30px', margin: '0 auto' })
 )
 
 export const information = style({ textAlign: 'center', display: 'grid', justifyContent: 'center' })

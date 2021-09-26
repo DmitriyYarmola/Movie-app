@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { useStore } from 'effector-react'
 import { MovieCard } from '@entities/movies'
 import { calculateStarCountByRate } from '@shared/lib'
+import { Slider } from '@shared/ui'
 import { getPopularMovies, $popularMovies } from '../model'
 import { styles } from './styles.css'
-import { Slider } from '@shared/ui/atoms/Slider'
 export const ListOfPopularMovies = () => {
 	const movies = useStore($popularMovies)
 
@@ -13,9 +13,11 @@ export const ListOfPopularMovies = () => {
 	}, [])
 
 	const options = {
-		slidesToShow: 2,
+		slidesToShow: 3,
+		slidesToScroll: 3,
 	}
-	return (
+
+	return movies.length > 0 ? (
 		<div className={styles}>
 			<Slider options={options}>
 				{movies.map(({ id, title, poster_path, vote_average }) => {
@@ -31,5 +33,7 @@ export const ListOfPopularMovies = () => {
 				})}
 			</Slider>
 		</div>
+	) : (
+		<></>
 	)
 }
