@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Arrow } from '@shared/ui'
-import { slider, track, withArrows, arrow, leftArrow, rightArrow } from './styles.css'
+import { Arrow, Dot } from '@shared/ui'
+import { slider, track, withArrows, arrow, leftArrow, rightArrow, dots } from './styles.css'
 
 const initialOptions = {
 	slidesToShow: 1,
@@ -62,6 +62,14 @@ export const Slider: React.FC<Props> = ({ children, options }) => {
 		}
 	}, [calculateElementWidth, options])
 
+	const calculateCountOfSlides = useCallback(() => {
+		const { slidesToShow, slidesToScroll } = formattedOptions
+		//NOTE: 1 = the first initial slider
+		return Math.round((getTotalChildrenCount() - slidesToShow) / slidesToScroll) + 1
+	}, [formattedOptions, getTotalChildrenCount])
+
+	const countOfSlidesArray = useMemo(() => new Array(calculateCountOfSlides()).fill(''), [calculateCountOfSlides])
+
 	const changeChildrenStyles = () => {
 		return React.Children.map(children, (child: any) =>
 			React.cloneElement(child, {
@@ -80,6 +88,13 @@ export const Slider: React.FC<Props> = ({ children, options }) => {
 		const { slidesToScroll } = formattedOptions
 		if (leftToScroll + slidesToScroll === totalWithoutFirstSlide) return INITIAL_LEFT_ITEMS_TO_SCROLL
 		return -(-prevValue - elementWidth * slidesToScroll)
+	}
+
+	const calculateSliderScrollByDotClick = (vlaue: number) => {
+		const { slidesToScroll, slidesToShow } = formattedOptions
+		const hasMoreScrolledThenTotalCount = vlaue * slidesToScroll > getTotalChildrenCount()
+		if (hasMoreScrolledThenTotalCount) return vlaue - elementWidth * (getTotalChildrenCount() - slidesToShow)
+		return -(elementWidth * (vlaue * slidesToScroll - slidesToShow))
 	}
 
 	const changeTrackPosition = (position: number) => {
@@ -103,6 +118,16 @@ export const Slider: React.FC<Props> = ({ children, options }) => {
 		setLeftToScroll((prevState) => prevState - slidesToScroll)
 	}
 
+	const onClickByDot = (value: number) => {
+		const { slidesToScroll } = formattedOptions
+		const position = calculateSliderScrollByDotClick(value)
+		portionPosition.current = position
+		changeTrackPosition(position)
+		setLeftToScroll(getTotalChildrenCount() - slidesToScroll * value)
+	}
+
+	console.log('GDGDS', leftToScroll)
+
 	const isLastSlide = useMemo(() => leftToScroll <= INITIAL_LEFT_ITEMS_TO_SCROLL, [leftToScroll])
 
 	const isFirstSlide = useMemo(() => leftToScroll === totalWithoutFirstSlide, [leftToScroll, totalWithoutFirstSlide])
@@ -115,6 +140,11 @@ export const Slider: React.FC<Props> = ({ children, options }) => {
 				{changeChildrenStyles()}
 			</div>
 			{!isLastSlide && isArrow && <Arrow onClick={onClickRightArrow} classes={[arrow, rightArrow]} />}
+			<div className={dots}>
+				{countOfSlidesArray.map((_, index) => {
+					return <Dot onClick={() => onClickByDot(index + 1)} key={index} />
+				})}
+			</div>
 		</div>
 	)
 }
