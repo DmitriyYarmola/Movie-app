@@ -6,6 +6,7 @@ const initialOptions = {
 	slidesToShow: 1,
 	slidesToScroll: 1,
 	isArrow: true,
+	speed: 500,
 }
 interface Props {
 	children: React.ReactNode
@@ -14,6 +15,7 @@ interface Props {
 		slidesToScroll?: number
 		gap?: number
 		isArrow?: boolean
+		speed?: number
 	}
 }
 
@@ -105,11 +107,11 @@ export const Slider: React.FC<Props> = ({ children, options }) => {
 
 	const isFirstSlide = useMemo(() => leftToScroll === totalWithoutFirstSlide, [leftToScroll, totalWithoutFirstSlide])
 
-	const { isArrow } = formattedOptions
+	const { isArrow, speed } = formattedOptions
 	return (
 		<div className={`${slider} ${isArrow ? withArrows : ''}`}>
 			{!isFirstSlide && isArrow && <Arrow type='left' onClick={onClickLeftArrow} classes={[arrow, leftArrow]} />}
-			<div className={track} ref={trackRef}>
+			<div className={track} ref={trackRef} style={{ transitionDuration: `${speed}ms` }}>
 				{changeChildrenStyles()}
 			</div>
 			{!isLastSlide && isArrow && <Arrow onClick={onClickRightArrow} classes={[arrow, rightArrow]} />}

@@ -11,7 +11,7 @@ export const withArrows = style({ margin: '0 30px' })
 export const track = style({
 	display: 'flex',
 	justifyContent: 'space-between',
-	transition: '.5s  ease-in-out',
+	transitionTimingFunction: 'ease-in-out',
 })
 export const arrow = style({ position: 'absolute', zIndex: 10, top: '50%' })
 export const rightArrow = style({ right: 0 })
