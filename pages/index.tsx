@@ -11,8 +11,6 @@ import { Header } from '../widgets/Header'
 const enhance = withStart(pageLoaded)
 
 function Home() {
-	// console.log('guest', guest)
-	console.log('RENDER 1')
 	return (
 		<AuthorizeGuest>
 			<MainTemplate header={<Header />}>

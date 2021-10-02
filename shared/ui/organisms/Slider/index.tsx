@@ -1,22 +1,21 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Arrow, Dot } from '@shared/ui'
+import { useWindwoSize } from '@shared/lib'
 import { slider, track, withArrows, arrow, leftArrow, rightArrow, dots } from './styles.css'
+import { DefaultOptions, Options } from './interface'
+import { getClosestBreakpoint } from './lib'
 
 const initialOptions = {
 	slidesToShow: 1,
 	slidesToScroll: 1,
 	isArrow: true,
 	speed: 500,
+	gap: 0,
 }
+
 interface Props {
 	children: React.ReactNode
-	options?: {
-		slidesToShow?: number
-		slidesToScroll?: number
-		gap?: number
-		isArrow?: boolean
-		speed?: number
-	}
+	options: Options
 }
 
 const INITIAL_ELEMENT_WIDTH = 0
@@ -24,12 +23,14 @@ const INITIAL_LEFT_ITEMS_TO_SCROLL = 0
 const INITIAL_PORTION_POSITION = 0
 
 export const Slider: React.FC<Props> = ({ children, options }) => {
-	const formattedOptions = useMemo(() => ({ ...initialOptions, ...options }), [options])
-
+	const windowSize = useWindwoSize()
 	const [elementWidth, setElementWidth] = useState(INITIAL_ELEMENT_WIDTH)
 	const [leftToScroll, setLeftToScroll] = useState(INITIAL_LEFT_ITEMS_TO_SCROLL)
+	const [formattedOptions, setFormattedOptions] = useState<Required<DefaultOptions>>(initialOptions)
 	const trackRef = useRef<HTMLDivElement>(null)
 	const portionPosition = useRef(INITIAL_PORTION_POSITION)
+
+	console.log('formattedOptions', formattedOptions)
 
 	const getTotalChildrenCount = useCallback(() => {
 		return React.Children.count(children)
@@ -51,7 +52,33 @@ export const Slider: React.FC<Props> = ({ children, options }) => {
 
 	useEffect(() => {
 		setLeftToScroll(getTotalChildrenCount() - formattedOptions.slidesToShow)
-	}, [formattedOptions.slidesToShow, getTotalChildrenCount])
+	}, [formattedOptions, getTotalChildrenCount])
+
+	useEffect(() => {
+		const responsiveOptions = options?.responsive
+		setFormattedOptions((prevState) => {
+			if (responsiveOptions) {
+				const breakpointItem = getClosestBreakpoint(options?.responsive, windowSize.width)
+				const { responsive, ...noResponsiveOptions } = options
+				console.log({ ...prevState, ...breakpointItem.settings }, 'HERE', breakpointItem.settings)
+				if (breakpointItem.breakpoint >= windowSize.width) return { ...prevState, ...breakpointItem.settings }
+
+				return { ...prevState, ...noResponsiveOptions }
+			}
+			return prevState
+		})
+		// if (responsiveOptions) {
+		// 	const breakpointItem = getClosestBreakpoint(options?.responsive, windowSize.width)
+		// 	const { responsive, ...noResponsiveOptions } = options
+		// 	if (breakpointItem.breakpoint >= windowSize.width) {
+		// 		setFormattedOptions((prevState) => ({ ...prevState, ...breakpointItem.settings }))
+		// 		return
+		// 	}
+		// 	setFormattedOptions((prevState) => ({ ...prevState, ...noResponsiveOptions }))
+		// 	return
+		// }
+		// setFormattedOptions((prevState) => ({ ...prevState, ...options }))
+	}, [getTotalChildrenCount, options, windowSize.width])
 
 	useEffect(() => {
 		const trackElement = trackRef.current
@@ -125,8 +152,6 @@ export const Slider: React.FC<Props> = ({ children, options }) => {
 		changeTrackPosition(position)
 		setLeftToScroll(getTotalChildrenCount() - slidesToScroll * value)
 	}
-
-	console.log('GDGDS', leftToScroll)
 
 	const isLastSlide = useMemo(() => leftToScroll <= INITIAL_LEFT_ITEMS_TO_SCROLL, [leftToScroll])
 
